@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="block">
-    {{ $url := (print .Site.Params.apiBaseUrl "/products") }}
+    {{ $url := (print (getenv "API_URL") "/products") }}
     {{ $contentData := resources.GetRemote $url }}
     {{ $jsonData := $contentData.Content | transform.Unmarshal }}
     {{ $productUrl := (print .Site.BaseURL "products") }}

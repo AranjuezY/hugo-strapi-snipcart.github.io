@@ -1,4 +1,6 @@
-@use 'bulma/bulma' as *;
+@use 'bulma/sass' with (
+    $primary: #3273DC
+);
 
 // Custom styles
 html {
@@ -9,8 +11,4 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-}
-
-.test {
-    color: var(--bulma-primary);
 }

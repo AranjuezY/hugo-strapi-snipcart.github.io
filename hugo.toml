@@ -3,7 +3,6 @@ languageCode = 'en-us'
 title = 'Hugo Commercial'
 
 [params]
-  apiBaseUrl = "http://66.103.216.165/api"
   author = 'Aranjuez'
 
 [security]
