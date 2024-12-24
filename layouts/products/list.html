@@ -1,0 +1,39 @@
+{{ define "main" }}
+<section class="block">
+    {{ $url := (print .Site.Params.apiBaseUrl "/products") }}
+    {{ $contentData := resources.GetRemote $url }}
+    {{ $jsonData := $contentData.Content | transform.Unmarshal }}
+    {{ $productUrl := (print .Site.BaseURL "products") }}
+
+    <div class="container">
+        {{ if $jsonData.data }}
+        <div class="fixed-grid has-3-cols">
+            <div class="grid is-gap-4">
+                {{ range $jsonData.data }}
+                {{ $id := .id | default "unknown-id" }}
+                {{ $documentId := .documentId | default "unknown-document" }}
+                {{ $name := .Name | default "Unnamed Product" }}
+                {{ $price := .Price | default "0.00" }}
+                {{ $description := .Description | default "No description available." }}
+
+                <div class="cell">
+                    <div class="box">
+                        <h2>{{ .Name }}</h2>
+                        <p>{{ .Description }}</p>
+                        <p><strong>Price:</strong> ${{ .Price }}</p>
+                        <button class="snipcart-add-item button is-primary" data-item-id="{{ $id }}"
+                            data-item-price="{{ $price }}" data-item-url="{{ $productUrl }}"
+                            data-item-description="{{ $description }}" data-item-name="{{ $name }}">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ else }}
+        <p>No content found.</p>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

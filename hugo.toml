@@ -1,0 +1,11 @@
+baseURL = 'https://aranjuezy.github.io/hugo-strapi-snipcart.github.io'
+languageCode = 'en-us'
+title = 'Hugo Commercial'
+
+[params]
+  apiBaseUrl = "http://66.103.216.165/api"
+  author = 'Aranjuez'
+
+[security]
+  [security.funcs]
+    getenv = ['^HOME$', '^API_']

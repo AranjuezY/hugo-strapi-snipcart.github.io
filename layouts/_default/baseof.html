@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+        <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {{ $opts := dict "transpiler" "dartsass" }}
+        {{ $bulma := resources.Get "css/main.scss" | toCSS $opts | minify }}
+        <link rel="stylesheet" href="{{ $bulma.RelPermalink }}">
+
+        <script type="text/javascript">
+          window.API_KEY = "{{ getenv "API_KEY" }}"
+        </script>
+        {{ $snipcartJS := resources.Get "js/snipcart.js" }}
+        {{ if $snipcartJS }}
+          <script src="{{ $snipcartJS.Permalink }}" defer></script>
+        {{ else }}
+          <p>Failed to load Snipcart JS</p>
+        {{ end }}
+    </head>
+    <body>
+        <header class="block">
+            <div class="container">
+                <h1 class="title has-text-centered has-text-primary is-size-1">{{ .Site.Title }}</h1>
+                <nav class="tabs is-centered">
+                    <ul>
+                        <li><a class="navbar-item" href="{{ "" | relURL }}">Home</a></li>
+                        <li><a class="navbar-item" href="{{ "products/" | relURL }}">Products</a></li>
+                        <li><a class="navbar-item" href="{{ "about/" | relURL }}">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="container">
+                {{ block "main" . }}{{ end }}
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; {{ now.Format "2006" }} {{ .Site.Params.author }}. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>

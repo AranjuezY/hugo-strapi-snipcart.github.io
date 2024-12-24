@@ -1,0 +1,16 @@
+@use 'bulma/bulma' as *;
+
+// Custom styles
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.test {
+    color: var(--bulma-primary);
+}

@@ -1,0 +1,46 @@
+# Hugo build directory
+/public/
+
+# Hugo cache directory
+/resources/_gen/
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+*.tmp
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Node modules (if applicable)
+node_modules/
+
+# Custom configurations
+config.toml
+config.yaml
+config.json
+
+# Ignore the content directory if using a content management system (CMS) or if it contains sensitive information
+/content/
+
+# Other generated files
+*.zip
+*.tar.gz
+*.tgz
+
+# Temporary files for specific plugins
+/.hugo_build.lock
+
+# Ignore personal files or environment-specific files (add your own patterns as necessary)
+.env
+.env.local
+
+instructions.md
