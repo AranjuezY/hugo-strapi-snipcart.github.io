@@ -1,14 +1,22 @@
 @use 'bulma/sass' with (
-    $primary: #3273DC
+  $primary: #3273DC
 );
+@use "bulma/sass/utilities/mixins";
 
 // Custom styles
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.test-area {
+  @include mixins.mobile {
+  }
+  @include mixins.tablet {
+  }
 }

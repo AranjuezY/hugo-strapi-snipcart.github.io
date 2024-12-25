@@ -7,8 +7,16 @@
 
     <div class="container">
         {{ if $jsonData.data }}
-        <div class="fixed-grid has-3-cols">
-            <div class="grid is-gap-4">
+        <div class="block is-flex is-justify-content-right mr-4">
+            <button class="snipcart-checkout icon-text">
+                <span class="icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </span>
+                <span class="">View Cart</span>
+            </button>
+        </div>
+        <div class="test-area">
+            <div class="columns is-multiline is-1-mobile is-3-tablet">
                 {{ range $jsonData.data }}
                 {{ $id := .id | default "unknown-id" }}
                 {{ $documentId := .documentId | default "unknown-document" }}
@@ -16,7 +24,7 @@
                 {{ $price := .Price | default "0.00" }}
                 {{ $description := .Description | default "No description available." }}
 
-                <div class="cell">
+                <div class="column is-full-mobile is-one-third-tablet">
                     <div class="box">
                         <h2>{{ .Name }}</h2>
                         <p>{{ .Description }}</p>
