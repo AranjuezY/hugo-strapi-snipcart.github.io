@@ -3,7 +3,7 @@
     {{ $url := (print (getenv "API_URL") "/products") }}
     {{ $contentData := resources.GetRemote $url }}
     {{ $jsonData := $contentData.Content | transform.Unmarshal }}
-    {{ $productUrl := (print .Site.BaseURL "products") }}
+    {{ $productUrl := (print (getenv "BASE_URL") "products") }}
 
     <div class="container">
         {{ if $jsonData.data }}

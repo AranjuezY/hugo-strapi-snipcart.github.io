@@ -3,6 +3,11 @@
     <div class="title">{{ .Title }}</div>
     <div>
         {{ .Content }}
+        {{ $posts := .Site.Data.posts.data }}
+        {{ $posts }}
+        {{ range $posts }}
+        <a href="/posts/{{.id}}">{{ .id }}</a>
+        {{ end }}
     </div>
 </article>
 {{ end }}

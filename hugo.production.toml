@@ -1,3 +1,4 @@
+baseURL = 'https://aranjuezy.github.io/hugo-strapi-snipcart.github.io'
 languageCode = 'en-us'
 title = 'Hugo Commercial'
 

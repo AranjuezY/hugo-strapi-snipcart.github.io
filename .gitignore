@@ -28,9 +28,6 @@ config.toml
 config.yaml
 config.json
 
-# Ignore the content directory if using a content management system (CMS) or if it contains sensitive information
-/content/
-
 # Other generated files
 *.zip
 *.tar.gz
@@ -43,4 +40,4 @@ config.json
 .env
 .env.local
 
-instructions.md
+/Data/
